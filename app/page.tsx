@@ -13,6 +13,50 @@ type NotificationData = {
   [key: string]: string
 }
 
+type NotificationType = {
+  title: string
+  body: string
+  data: NotificationData
+  target: "all" | "test" | "android-version" | "ios-version"
+}
+
+type NotificationTemplateType = {
+  [key: string]: NotificationType
+}
+
+const templates: NotificationTemplateType = {
+  "new-update-all": {
+    title: "New Feature Out Now",
+    body: "Check out our new feature!",
+    data: {
+      type: "new-update",
+      version: "1.0.0",
+      action: "open-updates-page",
+    },
+    target: "all",
+  },
+  "new-update-android": {
+    title: "New Feature Out Now",
+    body: "Check out our new feature!",
+    data: {
+      type: "new-update",
+      version: "1.0.0",
+      action: "open-updates-page",
+    },
+    target: "android-version",
+  },
+  "new-update-ios": {
+    title: "New Feature Out Now",
+    body: "Check out our new feature!",
+    data: {
+      type: "new-update",
+      version: "1.0.0",
+      action: "open-updates-page",
+    },
+    target: "ios-version",
+  },
+};
+
 export default function Page() {
   const [serviceAccount, setServiceAccount] = useState<string | null>(null)
   const [title, setTitle] = useState('')
@@ -74,7 +118,7 @@ export default function Page() {
 
   return (
     <main
-      className="flex items-center justify-center min-h-screen bg-gray-100"
+      className="flex items-center justify-center gap-10 min-h-screen bg-gray-100"
     >
       {
         serviceAccount && (
@@ -90,7 +134,7 @@ export default function Page() {
       }
       {
         serviceAccount && (
-          <Card className="w-full max-w-2xl mx-auto rounded-lg">
+          <Card className="w-full max-w-2xl rounded-lg">
             <div className="flex flex-col space-y-4 p-4 bg-white rounded-lg shadow-md">
               <h2 className="text-xl font-semibold text-gray-800">
                 {title}
@@ -107,7 +151,7 @@ export default function Page() {
           </Card>
         )
       }
-      <Card className="w-full max-w-2xl mx-auto">
+      <Card className="w-full max-w-2xl">
         <CardHeader>
           <CardTitle>Firebase Notification Sender</CardTitle>
           <CardDescription>Upload your service account JSON and send notifications to your users.</CardDescription>
@@ -119,6 +163,25 @@ export default function Page() {
           </div>
           {serviceAccount && (
             <>
+              <div>
+                <Label>Use Template</Label>
+                <div className="space-y-2">
+                  {Object.entries(templates).map(([key, template], index) => (
+                    <Button
+                      variant="ghost"
+                      key={index}
+                      onClick={() => {
+                        setTitle(template.title)
+                        setBody(template.body)
+                        setNotificationData(template.data)
+                        setTarget(template.target)
+                      }}
+                    >
+                      {key}
+                    </Button>
+                  ))}
+                </div>
+              </div>
               <div>
                 <Label htmlFor="title">Notification Title</Label>
                 <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
