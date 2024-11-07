@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { toast } from "sonner"
+import IPhoneNotification from '@/components/iphone-notification'
 
 type NotificationData = {
   [key: string]: string
@@ -133,23 +134,32 @@ export default function Page() {
         )
       }
       {
-        serviceAccount && (
-          <Card className="w-full max-w-2xl rounded-lg">
-            <div className="flex flex-col space-y-4 p-4 bg-white rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold text-gray-800">
-                {title}
-              </h2>
-              <p className="text-gray-600">
-                {body}
-              </p>
-              <div>
-                <pre className='text-sm'>
-                  {JSON.stringify(notificationData, null, 2)}
-                </pre>
-              </div>
-            </div>
-          </Card>
-        )
+        serviceAccount &&
+        // (
+        //   <Card className="w-full max-w-2xl rounded-lg">
+        //     <div className="flex flex-col space-y-4 p-4 bg-white rounded-lg shadow-md">
+        //       <h2 className="text-xl font-semibold text-gray-800">
+        //         {title}
+        //       </h2>
+        //       <p className="text-gray-600">
+        //         {body}
+        //       </p>
+        //       <div>
+        //         <pre className='text-sm'>
+        //           {JSON.stringify(notificationData, null, 2)}
+        //         </pre>
+        //       </div>
+        //     </div>
+        //   </Card>
+        // )
+        <IPhoneNotification notification={
+          {
+            title: title,
+            description: body,
+            image: "kowroo_logo.png"
+          }
+        } />
+
       }
       <Card className="w-full max-w-2xl">
         <CardHeader>
