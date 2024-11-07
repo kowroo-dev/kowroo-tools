@@ -19,7 +19,7 @@ export default function Component({ notification }: { notification: Notification
                 <div className={`absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-xl`}></div>
 
                 {/* Screen */}
-                <div className={`w-full h-full ${darkMode ? 'bg-zinc-900' : 'bg-white'} pt-5 pb-0 px-3 flex flex-col relative`}>
+                <div className={`w-full h-full ${darkMode ? 'bg-zinc-900' : 'bg-white'} pt-5 pb-0 px-3 flex flex-col`}>
                     {/* Status bar */}
                     <div className="flex justify-between items-center mb-4 mx-4">
                         <span className={`text-sm font-semibold ${darkMode ? 'text-white' : 'text-black'}`}>9:41</span>
