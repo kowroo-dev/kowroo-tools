@@ -100,7 +100,7 @@ export default function Page() {
           title,
           body,
           notificationData,
-          target,
+          target: target,
         }),
       })
 

@@ -18,7 +18,7 @@ export async function POST(request: Request) {
                 body,
             },
             data: notificationData || {},
-            topic: target === 'android' ? 'android' : target === 'ios' ? 'ios' : 'all',
+            topic: target,
         }
 
         const response = await getMessaging().send(message)
