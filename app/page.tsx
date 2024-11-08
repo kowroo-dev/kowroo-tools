@@ -14,49 +14,49 @@ type NotificationData = {
   [key: string]: string
 }
 
-type NotificationType = {
-  title: string
-  body: string
-  data: NotificationData
-  target: "all" | "test" | "android-version" | "ios-version"
-}
+// type NotificationType = {
+//   title: string
+//   body: string
+//   data: NotificationData
+//   target: "all" | "test" | "android-version" | "ios-version"
+// }
 
-type NotificationTemplateType = {
-  [key: string]: NotificationType
-}
+// type NotificationTemplateType = {
+//   [key: string]: NotificationType
+// }
 
-const templates: NotificationTemplateType = {
-  "new-update-all": {
-    title: "New Feature Out Now",
-    body: "Check out our new feature!",
-    data: {
-      type: "new-update",
-      version: "1.0.0",
-      action: "open-updates-page",
-    },
-    target: "all",
-  },
-  "new-update-android": {
-    title: "New Feature Out Now",
-    body: "Check out our new feature!",
-    data: {
-      type: "new-update",
-      version: "1.0.0",
-      action: "open-updates-page",
-    },
-    target: "android-version",
-  },
-  "new-update-ios": {
-    title: "New Feature Out Now",
-    body: "Check out our new feature!",
-    data: {
-      type: "new-update",
-      version: "1.0.0",
-      action: "open-updates-page",
-    },
-    target: "ios-version",
-  },
-};
+// const templates: NotificationTemplateType = {
+//   "new-update-all": {
+//     title: "New Feature Out Now",
+//     body: "Check out our new feature!",
+//     data: {
+//       type: "new-update",
+//       version: "1.0.0",
+//       action: "open-updates-page",
+//     },
+//     target: "all",
+//   },
+//   "new-update-android": {
+//     title: "New Feature Out Now",
+//     body: "Check out our new feature!",
+//     data: {
+//       type: "new-update",
+//       version: "1.0.0",
+//       action: "open-updates-page",
+//     },
+//     target: "android-version",
+//   },
+//   "new-update-ios": {
+//     title: "New Feature Out Now",
+//     body: "Check out our new feature!",
+//     data: {
+//       type: "new-update",
+//       version: "1.0.0",
+//       action: "open-updates-page",
+//     },
+//     target: "ios-version",
+//   },
+// };
 
 export default function Page() {
   const [serviceAccount, setServiceAccount] = useState<string | null>(null)
@@ -135,23 +135,6 @@ export default function Page() {
       }
       {
         serviceAccount &&
-        // (
-        //   <Card className="w-full max-w-2xl rounded-lg">
-        //     <div className="flex flex-col space-y-4 p-4 bg-white rounded-lg shadow-md">
-        //       <h2 className="text-xl font-semibold text-gray-800">
-        //         {title}
-        //       </h2>
-        //       <p className="text-gray-600">
-        //         {body}
-        //       </p>
-        //       <div>
-        //         <pre className='text-sm'>
-        //           {JSON.stringify(notificationData, null, 2)}
-        //         </pre>
-        //       </div>
-        //     </div>
-        //   </Card>
-        // )
         <IPhoneNotification notification={
           {
             title: title,
@@ -173,7 +156,7 @@ export default function Page() {
           </div>
           {serviceAccount && (
             <>
-              <div>
+              {/* <div>
                 <Label>Use Template</Label>
                 <div className="space-y-2">
                   {Object.entries(templates).map(([key, template], index) => (
@@ -191,7 +174,7 @@ export default function Page() {
                     </Button>
                   ))}
                 </div>
-              </div>
+              </div> */}
               <div>
                 <Label htmlFor="title">Notification Title</Label>
                 <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
