@@ -13,7 +13,7 @@ export default function Component({ notification }: { notification: Notification
     const { title, description, image, darkMode = false } = notification
 
     return (
-        <div className={`flex items-center justify-center min-h-screen p-4`}>
+        <div className={`flex items-center justify-center min-h-screen p-4 select-none`}>
             <div className={`w-[380px] h-[755px] ${darkMode ? 'bg-zinc-800' : 'bg-black'} rounded-[63px] overflow-hidden shadow-xl relative border-4 ${darkMode ? 'border-zinc-900' : 'border-zinc-700'}`}>
                 {/* iPhone frame */}
                 <div className={`absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-xl`}></div>
