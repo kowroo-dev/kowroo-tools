@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Kowroo Tools",
-  description: "A set of usefull tools for Kowroo developers",
+  title: "Dev Tools",
+  description: "A set of usefull tools for developers",
 };
 
 export default function RootLayout({
