@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Firebase Notifications",
-  description: "Simple way to send notifications using Firebase Cloud Messaging", 
+  title: "Kowroo Tools",
+  description: "A set of usefull tools for Kowroo developers",
 };
 
 export default function RootLayout({
@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-geist-sans`}
       >
         {children}
-        <Toaster richColors/>
+        <Toaster richColors />
       </body>
     </html>
   );
