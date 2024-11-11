@@ -10,7 +10,7 @@ export default function DevToolsGrid() {
   const tools = [
     {
       title: "Emailer",
-      description: "Streamlined email management tool with SES",
+      description: "SES email management tool",
       icon: <Mail className="h-6 w-6" />,
       badge: "New",
       route: "/emailer",
