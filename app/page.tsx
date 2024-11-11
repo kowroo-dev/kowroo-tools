@@ -10,7 +10,7 @@ export default function DevToolsGrid() {
   const tools = [
     {
       title: "Emailer",
-      description: "Streamlined email management tool",
+      description: "Streamlined email management tool with SES",
       icon: <Mail className="h-6 w-6" />,
       badge: "New",
       route: "/emailer",
@@ -19,7 +19,7 @@ export default function DevToolsGrid() {
       title: "Notifier",
       description: "Firebase-powered notification system",
       icon: <Bell className="h-6 w-6" />,
-      badge: "Beta",
+      badge: "New",
       route: "/app-notifier",
     },
   ]
