@@ -156,25 +156,6 @@ export default function Page() {
           </div>
           {serviceAccount && (
             <>
-              {/* <div>
-                <Label>Use Template</Label>
-                <div className="space-y-2">
-                  {Object.entries(templates).map(([key, template], index) => (
-                    <Button
-                      variant="ghost"
-                      key={index}
-                      onClick={() => {
-                        setTitle(template.title)
-                        setBody(template.body)
-                        setNotificationData(template.data)
-                        setTarget(template.target)
-                      }}
-                    >
-                      {key}
-                    </Button>
-                  ))}
-                </div>
-              </div> */}
               <div>
                 <Label htmlFor="title">Notification Title</Label>
                 <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
