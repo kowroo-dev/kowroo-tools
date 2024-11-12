@@ -21,7 +21,11 @@ export async function POST(request: Request) {
             topic: target,
         }
 
+        console.log('Sending notification:', message)
+
         const response = await getMessaging().send(message)
+
+        console.log('Successfully sent notification:', response)
 
         return NextResponse.json({ messageId: response }, { status: 200 })
     } catch (error) {
