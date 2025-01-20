@@ -346,6 +346,24 @@ export function QuestionnaireEditor() {
                                         document.body.appendChild(element)
                                         element.click()
                                         document.body.removeChild(element)
+
+                                        // update the date in fileList.json and download that too
+                                        const updatedFiles = files.map((file) => {
+                                            if (file.filename === selectedFile) {
+                                                return { ...file, lastModified: new Date().toISOString() }
+                                            }
+                                            return file
+                                        })
+
+                                        const fileListElement = document.createElement("a")
+                                        const fileList = new Blob([JSON.stringify({ questionnaireFiles: updatedFiles }, null, 2)], {
+                                            type: "application/json",
+                                        })
+                                        fileListElement.href = URL.createObjectURL(fileList)
+                                        fileListElement.download = "fileList.json"
+                                        document.body.appendChild(fileListElement)
+                                        fileListElement.click()
+                                        document.body.removeChild(fileListElement)
                                     }}
                                 >
                                     <Save className="mr-2 h-4 w-4" /> Save
