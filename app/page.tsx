@@ -22,6 +22,14 @@ export default function DevToolsGrid() {
       badge: "New",
       route: "/app-notifier",
     },
+    {
+      title: "Questionnaire Editor",
+      description: "Create and manage questionnaires",
+      icon: <Bell className="h-6 w-6" />,
+      badge: "New",
+      route: "/questionnaire",
+    },
+    
   ]
 
   return (
